@@ -3,6 +3,7 @@ var cors = require('cors')
 connectDB()
 const express = require('express')
 const app = express()
+// const port = 5000
 
 app.use(cors({
     origin: '*'
@@ -18,13 +19,11 @@ app.get('/', (req, res) => {
     res.send('CloudBook API!')
 })
 
-const port = 5000
-app.set('port', process.env.PORT || port);
-app.listen(port, () => {
-    console.log(`Server started at http://localhost:`,port)
-})
+// app.listen(0, () => {
+//     console.log(`Example app listening at  http://localhost:`,app.address().port)
+// })
 
 
-// const server = app.listen(0, () => console.log(`Server started on port :`,server.address().port));
+const server = app.listen(0, () => console.log(`Server started on port :`,server.address().port));
 // Export the Express API
 module.exports = app

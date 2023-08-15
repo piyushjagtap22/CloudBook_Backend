@@ -15,7 +15,7 @@ router.post('/createnote', fetchuser, [
     body('description', 'Description must be atleast 5 characters').isLength({ min: 5 }),
 ], async (req, res) => {
     try {
-        console.log('create')
+
         const { title, description, tag } = req.body;
 
         const note = new Note({
@@ -23,7 +23,6 @@ router.post('/createnote', fetchuser, [
         })
 
         const savedNote = await note.save()
-        console.log(savedNote)
         res.json(savedNote)
     }
     catch (err) {
